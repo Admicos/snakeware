@@ -1,3 +1,4 @@
+#!/bin/sh -eu
 # This script builds a snakeware image using buildroot.
 # The first and only argument should be the platform (ie x86-64)
 
@@ -32,31 +33,7 @@ make
 
 cd $SNAKEWARE
 
-if [ ! -f buildroot/output/images/rootfs.tar ]; then
-  echo "Failed to generate rootfs.tar, not creating bootable image."
-  exit
-fi
-
-# create blank image
-rm -f $IMG
-dd if=/dev/zero of=$IMG bs=$IMG_SIZE count=0 seek=1
-
-# create primary DOS partition, make it bootable, write
-(
-    echo o
-    echo n
-    echo p
-    echo
-    echo
-    echo
-    echo a
-    echo w
-) | fdisk $SNAKEWARE/$IMG
-
-# create virtual block device
-sudo kpartx -a $SNAKEWARE/$IMG
+cp buildroot/output/images/rootfs.iso9660 snakeware.iso
 
 echo ""
-echo "A virtual block device has been created for $IMG."
-echo "Use lsblk to find the number of this device and run ./img_final.sh <num>"
-echo "Example: ./img_final.sh 0 for loop0"
+echo "Build Successful. See snakeware.iso"
