@@ -1,2 +1,10 @@
 source "$BR2_EXTERNAL_SNAKEWARE_PATH/package/python-pygame-gui/Config.in"
 source "$BR2_EXTERNAL_SNAKEWARE_PATH/package/python-pyttsx3/Config.in"
+
+config SNAKEWARE_OPTIMIZE_PYTHON
+	bool "Enable Optimizations for Python"
+	help
+	  Applies LTO and PGO to Python.
+
+	  This will make builds slower in exchange for increased 
+	  performance.
