@@ -6,7 +6,7 @@ ISO="snakeware.iso"
 AUDIO="alsa" # change to pa for pulseaudio
 
 exec qemu-system-x86_64 \
-	-drive file="$ISO",media=cdrom,if=virtio \
+	-drive file="$ISO",media=cdrom \
 	-m "$RAM" \
 	-cpu host \
 	-machine type=q35,accel=kvm \
