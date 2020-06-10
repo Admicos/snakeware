@@ -13,3 +13,7 @@ cp -r $SNAKEWARE/../snakewm $SNAKEWARE/buildroot/output/target/usr/lib/$PYLIBVER
 # copy snake-games
 rm -rf $SNAKEWARE/buildroot/output/target/usr/lib/$PYLIBVER/snake_games
 cp -r $SNAKEWARE/../snake_games $SNAKEWARE/buildroot/output/target/usr/lib/$PYLIBVER/
+
+# copy hish
+rm -rf $SNAKEWARE/buildroot/output/target/usr/lib/$PYLIBVER/hish
+cp -r $SNAKEWARE/../hish $SNAKEWARE/buildroot/output/target/usr/lib/$PYLIBVER/
