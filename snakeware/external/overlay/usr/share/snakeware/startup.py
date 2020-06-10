@@ -17,4 +17,13 @@ class SnakeWMCommand(Command):
         return SnakeWM().run()
 
 
+class HISHCommand(Command):
+    def run(self):
+        """Start HISH."""
+        from hish import HISH
+
+        return HISH().run()
+
+
 snakewm = SnakeWMCommand()
+hish = HISHCommand()
